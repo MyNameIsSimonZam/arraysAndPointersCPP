@@ -144,39 +144,24 @@ int numbers[15] = {114, 111, 106, 107, 108, 105, 115, 108, 110, 109, 112, 113, 1
 Программа корректно использует обращения по индексам и выдаёт правильный ответ.
 Асимптотическая сложность алгоритма менее O(n^2).*/
 
-//void task4() {         // Insertion sort
-//  const int kArraySize = 15;
-//  int array[] = { 114, 111, 106, 107, 108, 105, 115, 108, 110, 109, 112, 113, 116, 117, 118 };
-//  int double_int;
-//
-//  for (int i = 1; i < kArraySize; ++i) {
-//    int temp = array[i];
-//    int j = i - 1;
-//    while (j >= 0 && array[j] < temp) {
-//      array[j + 1] = array[j];
-//      --j;
-//    }
-//    array[j + 1] = temp;
-//  }
-//
-//  for (int i = 0; i < kArraySize - 1; ++i) {
-//    if (array[i] == array[i + 1]) std::cout << array[i] << "\n";
-//  }
-//};
-
-
 void task4() {
   const int kArraySize = 15;
   int array[] = { 114, 111, 106, 107, 108, 105, 115, 108, 110, 109, 112, 113, 116, 117, 118 };
-  //int double_int;
 
   int sum = 0;
   for (int i = 0; i < kArraySize; ++i) {
     sum += array[i];
   }
-  std::cout << sum << "\n";
-  //std::cout << double_int << "\n";
-        // ИЩЕМ МИНИМАЛЬНОЕ ЗНАЧЕНИЕ И СЧИТАЕМ ПРОГРЕССИЮБ ПОТОМ ИЗ СУММЫ ВСЕХ ЧИСЕЛ ВЫЧИТАЕМ СУММЫ ПОСЛЕДОВАТЕЛЬНЫХ ЧИСЕЛ
+
+  int min = array[0];
+  for (int i = 1; i < kArraySize; ++i) {
+     if(min > array[i]) min = array[i];
+  }
+
+  int ar_progress = (14 * (2 * min + 13)) / 2;
+
+  std::cout << sum - ar_progress << "\n";
+
 };
 
 
