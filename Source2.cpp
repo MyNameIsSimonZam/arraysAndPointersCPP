@@ -37,7 +37,22 @@ void task3_1() {
 */
 
 void task3_2() {
+  int age = 0;
+  std::cout << "\n" << "Enter -1 for exit\n" << "\n";
+  std::vector<int> patients_vec;
 
+  while (age != -1) {
+    std::cout << "Enter your number: ";
+    std::cin >> age;
+    my_push_back(patients_vec, age);
+  }
+  print_vector(patients_vec);
+
+  float sum_age = 0;
+  for (int i = 0; i < patients_vec.size() - 1; ++i)
+    sum_age += patients_vec[i];
+
+  std::cout << "\n" << sum_age / (patients_vec.size() - 1) << "\n";
 };
 
 /*Задание 3. Роботы и коррупция*
