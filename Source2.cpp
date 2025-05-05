@@ -19,7 +19,7 @@ void task3_1() {
   while (robots_number != -1) {
     std::cout << "Enter your number: ";
     std::cin >> robots_number;
-    my_push_back(robots, robots_number);
+    push_back_custom(robots, robots_number);
   }
   print_vector(robots);
 };
@@ -41,18 +41,18 @@ void task3_2() {
   std::cout << "\n" << "Enter -1 for exit\n" << "\n";
   std::vector<int> patients_vec;
 
-  while (age != -1) {
+  while (age >= 0) {
     std::cout << "Enter your number: ";
     std::cin >> age;
-    my_push_back(patients_vec, age);
+    if (age >= 0) push_back_custom(patients_vec, age);
   }
   print_vector(patients_vec);
 
   float sum_age = 0;
-  for (int i = 0; i < patients_vec.size() - 1; ++i)
+  for (int i = 0; i < patients_vec.size(); ++i)
     sum_age += patients_vec[i];
 
-  std::cout << "\n" << sum_age / (patients_vec.size() - 1) << "\n";
+  std::cout << "\n" << sum_age / patients_vec.size() << "\n";
 };
 
 /*Задание 3. Роботы и коррупция*

@@ -25,7 +25,7 @@ void fill_vector(std::vector<float>& v) {
 }
 
 
-std::vector<int> my_push_back(std::vector<int>& v, int adding_number) {
+void push_back_custom(std::vector<int>& v, int adding_number) {
   std::vector<int> new_vector(v.size() + 1);
   
   for (int i = 0; i < v.size(); ++i)
@@ -33,6 +33,4 @@ std::vector<int> my_push_back(std::vector<int>& v, int adding_number) {
 
   new_vector[v.size()] = adding_number;
   v = new_vector;
-
-  return v;
 }
