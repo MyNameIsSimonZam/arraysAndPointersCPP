@@ -42,9 +42,9 @@ int main() {
 	case 5: task2_1(); break;
 	case 6: task2_2(); break;
 	case 7: task2_3(); break;
-	case 8: task2_1(); break;
-	case 9: task2_2(); break;
-	case 10: task2_3(); break;
+	case 8: task3_1(); break;
+	case 9: task3_2(); break;
+	case 10: task3_3(); break;
 	default: std::cout << "Invalid choice...\n";
 
 	}
