@@ -10,6 +10,14 @@ void task2_3();
 void task3_1();
 void task3_2();
 void task3_3();
+void task4_1();
+void task4_2();
+void task4_3();
+void task4_4();
+void task4_5();
+void task5_1();
+void task5_2();
+void task5_3();
 
 int main() {
 	int choice;
@@ -30,6 +38,17 @@ int main() {
 	std::cout << "Введите 8. Задание 1. Очередь из роботов\n";
 	std::cout << "Введите 9. Задание 2. Лечебница\n";
 	std::cout << "Введите 10. Задание 3. Роботы и коррупция*\n";
+	std::cout << "3. Удаление элемента со сдвигом\n";
+	std::cout << "Введите 11. Задание 1.\n";
+	std::cout << "Введите 12. Задание 2.\n";
+	std::cout << "4. Использование push_back()\n";
+	std::cout << "Введите 13. Задание 1.\n";
+	std::cout << "Введите 14. Задание 2.\n";
+	std::cout << "Введите 15. Задание 3.\n";
+	std::cout << "5. Практическая работа\n";
+	std::cout << "Введите 16. Задание 1.\n";
+	std::cout << "Введите 17. Задание 2.\n";
+	std::cout << "Введите 18. Задание 3.\n";
 
 	std::cin >> choice;
 
@@ -45,6 +64,14 @@ int main() {
 	case 8: task3_1(); break;
 	case 9: task3_2(); break;
 	case 10: task3_3(); break;
+	case 11: task4_1(); break;
+	case 12: task4_2(); break;
+	case 13: task4_3(); break;
+	case 14: task4_4(); break;
+	case 15: task4_5(); break;
+	case 16: task5_1(); break;
+	case 17: task5_2(); break;
+	case 18: task5_3(); break;
 	default: std::cout << "Invalid choice...\n";
 
 	}
