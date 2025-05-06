@@ -66,5 +66,16 @@ void task3_2() {
 */
 
 void task3_3() {
+  int robots_number = 0;
+  int position = 0;
+  std::cout << "\n" << "Enter -1 for exit\n" << "\n";
+  std::vector<int> robots = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
+  std::cout << "Enter your number: ";
+  std::cin >> robots_number;
+  std::cout << "Enter your position: ";
+  std::cin >> position;
+  if (robots_number >= 0) add_to_position(robots, robots_number, position);
+
+  print_vector(robots);
 };
