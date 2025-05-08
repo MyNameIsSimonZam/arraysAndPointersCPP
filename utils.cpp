@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "vector"
 
 void print_vector(const std::vector<int>& v) {
   for (int i = 0; i < v.size(); ++i) {
@@ -9,7 +10,7 @@ void print_vector(const std::vector<int>& v) {
 void fill_vector(std::vector<int>& v) {
   for (int i = 0; i < v.size(); ++i) {
     int insert_number;
-    std::cout << "Enter the" << i + 1 << "vector element:";
+    std::cout << "Enter the " << i + 1 << " vector element: ";
     std::cin >> insert_number;
     v[i] = insert_number;
   };
@@ -18,7 +19,7 @@ void fill_vector(std::vector<int>& v) {
 void fill_vector(std::vector<float>& v) {
   for (int i = 0; i < v.size(); ++i) {
     float insert_number;
-    std::cout << "Enter the" << i + 1 << "vector element:";
+    std::cout << "Enter the " << i + 1 << " vector element: ";
     std::cin >> insert_number;
     v[i] = insert_number;
   };
@@ -44,4 +45,13 @@ void add_to_position(std::vector<int>& v, int value, int position) {
   }
 
   v = new_vector;
+}
+
+void delite_position(std::vector<int>& v, int position) {
+
+  for (int i = 0; i < v.size() - 1; ++i) {
+    if (i < position) v[i] = v[i];
+    if (i >= position) v[i] = v[i + 1];
+  }
+  v.resize(v.size() - 1);
 }
