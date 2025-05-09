@@ -62,7 +62,7 @@ void task4_2() {
     std::cout << "Enter your request (1 - add and Number, 2 - delete and Index): ";
     std::cin >> action >> value;
     assert(action == 1 || action == 2);
-    if (action == 2 && value >= robots.size() || value < 0) {
+    if (action == 2 && (value >= robots.size() || value < 0)) {
       std::cout << "You can't delite unexist index\n";
       break;
     }

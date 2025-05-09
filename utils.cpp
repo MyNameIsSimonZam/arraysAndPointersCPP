@@ -55,3 +55,4 @@ void delete_position(std::vector<int>& v, int position) {
   }
   v.resize(v.size() - 1);
 }
+
