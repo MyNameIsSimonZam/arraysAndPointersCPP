@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include "utils.h"
+#include <cassert>
 
 
 /*Задание 1
@@ -35,10 +36,9 @@ void task4_1() {
   for (int i = 0; i < bought_count; ++i) {
     std::cout << "Enter the robot you want to buy now (from 0 till " << bought_count << "): ";
     std::cin >> bought_robot;
-    delite_position(robots, bought_robot);
+    delete_position(robots, bought_robot);
   }
   print_vector(robots);
-
 };
 
 /*Задание 2
@@ -48,10 +48,25 @@ void task4_1() {
 Запроc “2 m” означает, что из витрины забрали робота по индексу m.
 Необходимо смоделировать такое взаимодействие и после проведения всех запросов вывести на экран
 оставшихся на витрине роботов.
-*Попробовать реализовать с заранее увеличеным вектором,
-чтобы не увеличивать его размер на 1 каждый раз.
 */
 
 void task4_2() {
+  int request_count;
+  std::cout << "Enter count of request: ";
+  std::cin >> request_count;
+  std::vector<int> robots;
 
+  int action, value;
+
+  for (int i = 0; i < request_count; ++i) {
+    std::cout << "Enter your request (1 - add and Number, 2 - delete and Index): ";
+    std::cin >> action >> value;
+    assert(action == 1 || action == 2);
+    if (action == 2 && value >= robots.size() || value < 0) {
+      std::cout << "You can't delite unexist index\n";
+      break;
+    }
+    (action == 1) ? push_back_custom(robots, value) : delete_position(robots, value);
+  }
+  print_vector(robots);
 };

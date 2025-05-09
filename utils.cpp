@@ -47,7 +47,7 @@ void add_to_position(std::vector<int>& v, int value, int position) {
   v = new_vector;
 }
 
-void delite_position(std::vector<int>& v, int position) {
+void delete_position(std::vector<int>& v, int position) {
 
   for (int i = 0; i < v.size() - 1; ++i) {
     if (i < position) v[i] = v[i];
