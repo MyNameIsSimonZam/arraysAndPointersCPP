@@ -56,3 +56,36 @@ void delete_position(std::vector<int>& v, int position) {
   v.resize(v.size() - 1);
 }
 
+void ring_buffer(std::vector<int>& rb) {
+
+  if (rb.capacity() == 0) {
+    int cap;
+    std::cout << "Enter the capacity ";
+    std::cin >> cap;
+    rb.resize(cap);
+  }
+
+  int input_number = 0;
+  int head = 0;
+  int size = 0;
+
+  while (input_number != -1) {
+    std::cout << "Input number: ";
+    std::cin >> input_number;
+    if (input_number != -1) {
+      rb[head] = input_number;
+      ++size;
+      head = (head + 1) % rb.size();
+    }
+  };
+  if (size >= rb.size()) {
+    for (int i = 0; i < rb.size(); ++i) {
+      std::cout << rb[head] << " ";
+      head = (head + 1) % rb.size();
+    }
+  }
+  else
+    for (int i = 0; i < head; ++i) {
+      std::cout << rb[i] << " ";
+    }
+}
