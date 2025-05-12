@@ -148,6 +148,15 @@ gamer_name = 'X';
 • Правильный (желательно красивый) вывод игрового поля.
 • Понятный игроку интерфейс.*/
 
+void print_two_dementional(char cross[3][3]) {
+  for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 3; ++j) {
+      std::cout << cross[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+};
+
 int check_winner(char cross[3][3]) {
   int count_x = 0;
   int count_o = 0;
@@ -180,42 +189,57 @@ int check_winner(char cross[3][3]) {
 void task6_2() {
   char cross[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
   char check_repeat = 'O';
+  char new_symbol;
+  bool exit = false;
 
-  for (int i = 0; i < 3; ++i) {     // переделать. добавить выбор поля. проверка на пробел, чтобы одно поле заполнялось 1 раз
-    bool exit = false;
-    for (int j = 0; j < 3; ++j) {
-      std::cin >> cross[i][j];
-      if (cross[i][j] == check_repeat) {
-        std::cout << "You can't repeat the symbol\n";
-        exit = true;
-      }
-      else if (cross[0][0] != 'X') {
-        std::cout << "first step has to be \"X\"\n";
-        exit = true;
-      }
-      else if (cross[i][j] != 'X' && cross[i][j] != 'O') {
-        std::cout << "first step has to be \"X\" or \"O\"\n";
-        exit = true;
-      }
-      if (exit) break;
-      else {
-        if (check_winner(cross) == 1) {
-          std::cout << "X win";
-          exit = true;
-        }
-        if (check_winner(cross) == 2) {
-          std::cout << "O win";
-          exit = true;
-        }
-        check_repeat = cross[i][j];
-      }
+  // переделать. добавить выбор поля. проверка на пробел, чтобы одно поле заполнялось 1 раз
+  for (int i = 0; i < 9; ++i) {
+    int x, y;
+    std::cout << "Enter horisontal coordinate\n";
+    std::cin >> x;
+    std::cout << "Enter vertical coordinate\n";
+    std::cin >> y;
+    std::cout << "Enter 'X' or 'O'\n";
+    std::cin >> new_symbol;
 
+    if (cross[x][y] != ' ') {
+      std::cout << "it's filled\n";
+      exit = true; break;
+    }
+    else cross[x][y] = new_symbol;
+
+    if (cross[x][y] == check_repeat) {
+      std::cout << "Step has not to be repeated \"X\" or \"O\" and first step has to be \"X\" only\n";
+      exit = true;
+    }
+    else if (cross[x][y] != 'X' && cross[x][y] != 'O') {
+      std::cout << "step has to be \"X\" or \"O\"\n";
+      exit = true;
+    }
+    else if (x < 0 || x > 2 || y < 0 || y > 2) {
+      std::cout << "coordinate has to be from 0 to 2\n";
+      exit = true;
     }
     if (exit) break;
+
+    else {
+      if (check_winner(cross) == 1) {
+        std::cout << "X win";
+        exit = true;
+      }
+      if (check_winner(cross) == 2) {
+        std::cout << "O win";
+        exit = true;
+      }
+      check_repeat = cross[x][y];
+    }
+    if (exit) break;
+
+    print_two_dementional(cross);
   }
 
   if (check_winner(cross) == 0) {
-    std::cout << "Nobody win";
+    std::cout << "\n" << "Nobody win";
   }
 };
 
@@ -313,14 +337,14 @@ o — это целый пузырёк, x — лопнутый. Это тоже 
 можно не сравнивать её с истиной, а указать в условии имя переменной.
 Например, вместо:
 
-if (shell[i][j] == true)
+if (shell[i][i] == true)
 {
 …
 }
 
 Достаточно записать:
 
-if (shell[i][j])
+if (shell[i][i])
 {
 …
 }
@@ -363,7 +387,7 @@ void task6_5() {
 Первый индекс (строка) тоже без сюрпризов: это значение счётчика внешнего цикла:
 
 for (int i = 0; i < 5; ++i) {
-for (int j = 0; j < 5; ++j) {
+for (int i = 0; i < 5; ++i) {
 digits[i][...] = number;
 number += 1;
 }
@@ -427,7 +451,7 @@ input slice: 3
 При печати потребуется проверять содержимое трёхмерного массива.
 При уже известном значении уровня level проверка выглядит так:
 
-if (world[i][j][level])
+if (world[i][i][level])
 {
 //печатаем 1
 }
