@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iomanip>
 #include "utils.h"
+#include <cassert>
 
 
 /*Задание 1. Банкетный стол
@@ -413,8 +414,57 @@ if (shell[i][i])
 
 */
 
+bool print_matrix_bubble_wrap(const std::vector<std::vector<bool>>& v) {
+  std::vector<std::vector<char>> new_v(v.size(), std::vector<char>(v.size()));
+  bool end_check = true;
+
+  for (int i = 0; i < v.size() && end_check; ++i) {
+    for (int j = 0; j < v[i].size() && end_check; ++j) {
+      if (v[i][j]) new_v[i][j] = 'o';
+      else {
+        new_v[i][j] = 'x';
+      }
+      std::cout << new_v[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+
+  if (new_v[0][0] == 'x' && new_v.back().back() == 'x') {
+    end_check = false;
+  }
+
+  return (end_check ? true : false);
+}
+
 void task6_5() {
   std::vector<std::vector<bool>> a(12, std::vector<bool>(12, true));
+  int x1, y1, x2, y2;
+  bool end_check = true;
+
+  while (end_check) {
+    std::cout << "\nEnter the coordinates x1, y1, x2, y2 (from 0 to 11): \n";
+    std::cin >> x1 >> y1 >> x2 >> y2;
+    assert(x1 >= 0 && x2 < 12 && y1 >= 0 && y2 < 12);
+    assert(x1 <= x2 && y1 <= y2);
+    int pop_count = 0;
+
+    for (int i =x1; i <= x2; ++i) {
+      for (int j = y1; j <= y2; ++j) {
+        if (a[j][i]) {
+          a[j][i] = false;
+          ++pop_count;
+        }
+      }
+    }
+    end_check = print_matrix_bubble_wrap(a);
+
+    std::cout << "\n";
+    for (int i = 0; i < pop_count; ++i) std::cout << "Pop ";
+    pop_count = 0;
+    std::cout << "\n";
+
+    if (!end_check) std::cout << "Game over\n";
+  }
 };
 
 /*6. Проход змейкой (дополнительное задание)

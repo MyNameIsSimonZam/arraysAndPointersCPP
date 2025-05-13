@@ -13,6 +13,15 @@ void print_vector(const std::vector<float>& v) {
   }
 }
 
+void print_vector_two_dementional(const std::vector<std::vector<bool>>& v) {
+  for (int i = 0; i < v.size(); ++i) {
+    for (int j = 0; j < v[i].size(); ++j) {
+      std::cout << v[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
 void fill_vector(std::vector<int>& v) {
   for (int i = 0; i < v.size(); ++i) {
     int insert_number;
@@ -104,3 +113,4 @@ void fill_vector_two_demensional(std::vector<std::vector<float>>& v) {
     }
   }
 }
+
