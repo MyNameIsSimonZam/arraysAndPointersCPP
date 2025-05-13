@@ -148,14 +148,14 @@ gamer_name = 'X';
 • Правильный (желательно красивый) вывод игрового поля.
 • Понятный игроку интерфейс.*/
 
-void print_two_dementional(char cross[3][3]) {
+void print_two_dementional_3x3(char cross[3][3]) {
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
       std::cout << cross[i][j] << " ";
     }
     std::cout << "\n";
   }
-};
+}
 
 int check_winner(char cross[3][3]) {
   int count_x = 0;
@@ -184,7 +184,7 @@ int check_winner(char cross[3][3]) {
   }
 
   return 0;
-};
+}
 
 void task6_2() {
   char cross[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
@@ -192,7 +192,6 @@ void task6_2() {
   char new_symbol;
   bool exit = false;
 
-  // переделать. добавить выбор поля. проверка на пробел, чтобы одно поле заполнялось 1 раз
   for (int i = 0; i < 9; ++i) {
     int x, y;
     std::cout << "Enter horisontal coordinate\n";
@@ -235,13 +234,13 @@ void task6_2() {
     }
     if (exit) break;
 
-    print_two_dementional(cross);
+    print_two_dementional_3x3(cross);
   }
 
   if (check_winner(cross) == 0) {
     std::cout << "\n" << "Nobody win";
   }
-};
+}
 
 /*Задание 3. Матрицы
 Требуется реализовать небольшую программу для сравнения двух двумерных матриц
@@ -276,9 +275,50 @@ void task6_2() {
 Что оценивается
 Программа корректно сравнивает две матрицы и в случае совпадения формирует диагональную матрицу.*/
 
-void task6_3() {
+void fill_two_demensional_4x4(int a[][4]) {
+  for (int i = 0; i < 4; ++i) {
+    for (int j = 0; j < 4; ++j) {
+      std::cin >> a[i][j];
+    }
+  }
+}
 
-};
+bool compare_matrix_4x4(int a[][4], int b[][4]) {
+  for (int i = 0; i < 4; ++i) {
+    for (int j = 0; j < 4; ++j) {
+      if (a[i][j] != b[i][j]) return false;
+    }
+  }
+  return true;
+}
+
+void print_two_dementional_4x4(int cross[][4]) {
+  for (int i = 0; i < 4; ++i) {
+    for (int j = 0; j < 4; ++j) {
+      std::cout << cross[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+void task6_3() {
+  int first[4][4];
+  int second[4][4];
+
+  fill_two_demensional_4x4(first);
+  fill_two_demensional_4x4(second);
+
+  if (!compare_matrix_4x4(first, second)) std::cout << "Matrices aren't equal\n";
+  else {
+    for (int i = 0; i < 4; ++i) {
+      for (int j = 0; j < 4; ++j) {
+        if (i != j) first[i][j] = 0;
+      }
+    }
+  }
+
+  print_two_dementional_4x4(first);
+}
 
 /*Задание 4. Умножение матрицы на вектор
 Реализуйте частный случай умножения матрицы на матрицу, а именно умножение вектора на матрицу.
@@ -304,6 +344,22 @@ void task6_3() {
 */
 
 void task6_4() {
+  std::vector<float> b(4);
+  std::vector<std::vector<float>> a(4, std::vector<float>(4));
+  std::vector<float> c(4);
+
+  fill_vector(b);
+  fill_vector_two_demensional(a);
+
+  for (int i = 0; i < b.size(); ++i) {
+    float sum = 0;
+    for (int j = 0; j < a.size(); ++j) {
+      sum += b[j] * a[i][j];
+    }
+    c[i] = sum;
+  }
+
+  print_vector(c);
 
 };
 
@@ -358,7 +414,7 @@ if (shell[i][i])
 */
 
 void task6_5() {
-
+  std::vector<std::vector<bool>> a(12, std::vector<bool>(12, true));
 };
 
 /*6. Проход змейкой (дополнительное задание)

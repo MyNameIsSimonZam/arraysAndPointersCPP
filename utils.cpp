@@ -7,6 +7,12 @@ void print_vector(const std::vector<int>& v) {
   }
 }
 
+void print_vector(const std::vector<float>& v) {
+  for (int i = 0; i < v.size(); ++i) {
+    std::cout << v[i] << " ";
+  }
+}
+
 void fill_vector(std::vector<int>& v) {
   for (int i = 0; i < v.size(); ++i) {
     int insert_number;
@@ -90,3 +96,11 @@ void ring_buffer(std::vector<int>& rb) {
     }
 }
 
+void fill_vector_two_demensional(std::vector<std::vector<float>>& v) {
+  for (int i = 0; i < v.size(); ++i) {
+    for (int j = 0; j < v.size(); ++j) {
+      std::cout << "Enter the " << j + 1 << " vector element for " << i + 1 <<" row: ";
+      std::cin >> v[i][j];
+    }
+  }
+}
