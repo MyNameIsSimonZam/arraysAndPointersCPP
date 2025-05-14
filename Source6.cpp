@@ -448,7 +448,7 @@ void task6_5() {
     assert(x1 <= x2 && y1 <= y2);
     int pop_count = 0;
 
-    for (int i =x1; i <= x2; ++i) {
+    for (int i = x1; i <= x2; ++i) {
       for (int j = y1; j <= y2; ++j) {
         if (a[j][i]) {
           a[j][i] = false;
@@ -511,6 +511,21 @@ number += 1;
 
 void task6_6() {
 
+  std::vector<std::vector<int>> v(5, std::vector <int>(5));
+  int count = 0;
+  for (int i = 0; i < v.size(); ++i) {
+    for (int j = 0; j < v.size(); ++j) {
+      v[i][j] = count;
+      ++count;
+    }
+  }
+
+  for (int i = 0; i < v.size(); ++i) {
+    for (int j = 0; j < v.size(); ++j) {
+      std::cout << v[i][(i % 2) * (v.size() - 1 - j) + (1 - i % 2) * j] << "\t";
+    }  // формулу помог вывести ИИ
+    std::cout << "\n";
+  }
 };
 
 /*Задание 7. Почти «Майнкрафт» (дополнительное задание)
