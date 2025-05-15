@@ -4,6 +4,7 @@
 #include <iomanip>
 #include "utils.h"
 #include <cassert>
+#include <cmath>
 
 /*Задача 1
 Что нужно сделать:
@@ -86,7 +87,19 @@ a = {2, 7, 11, 15}. Результат = 9
 */
 
 void task7_2() {
-
+  std::vector<int> a = { 2, 7, 11, 15 };
+  int result = 9;
+  bool find = false;
+  for (int i = 0; i < a.size(); ++i) {
+    int temp = a[i];
+    for (int j = 1; j < a.size(); ++j) {
+      if (result - a[i] - a[j] == 0) {
+        std::cout << a[i] << " " << a[j] << "\n";
+        find = true;
+      }
+      if (find) break;
+    }
+  }
 }
 
 /*Задача 3
@@ -109,7 +122,20 @@ void task7_2() {
 */
 
 void task7_3() {
+  std::vector<int> v;
+  v.reserve(20);
+  int value = 0;
 
+  for (int i = 0; value != -2; ++i) {
+    std::cin >> value;
+    if (value == -1 && v.size() < 5) std::cout << "You need at least 5 digits\n";
+    else if (value == -1) std::cout << v[4] << "\n";
+    else {
+      v.push_back(value);
+      std::sort(v.begin(), v.end());
+    }
+  }
+  std::cout << "The program is finished\n";
 }
 
 /*Задача 4
@@ -125,6 +151,12 @@ void task7_3() {
 */
 
 void task7_4() {
-
+  std::vector<int> v = { -100,-50, -5, 1, 10, 15 };
+  for (int i = 0; i < v.size(); ++i) {
+    for (int j = 0; j < v.size() - 1 - i; ++j) {
+      if (abs(v[j]) > abs(v[j + 1])) std::swap(v[j], v[j + 1]);
+    }
+  }
+  print_vector(v);
 }
 
