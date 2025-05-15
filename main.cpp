@@ -24,6 +24,10 @@ void task6_3();
 void task6_4();
 void task6_5();
 void task6_6();
+void task7_1();
+void task7_2();
+void task7_3();
+void task7_4();
 
 
 int main() {
@@ -56,6 +60,7 @@ int main() {
   std::cout << "Введите 16. Задание 1.\n";
   std::cout << "Введите 17. Задание 2.\n";
   std::cout << "Введите 18. Задание 3.\n";
+  std::cout << "\n";
   std::cout << "Урок 3. Двумерные массивы и алгоритмы над ними\n";
   std::cout << "Введите 19. Задание 1. Банкетный стол\n";
   std::cout << "Введите 20. Задание 2. Крестики-нолики\n";
@@ -63,6 +68,14 @@ int main() {
   std::cout << "Введите 22. Задание 4. Умножение матрицы на вектор\n";
   std::cout << "Введите 23. Задание 5. Пупырка\n";
   std::cout << "Введите 24. Задание 6. Проход змейкой\n";
+  std::cout << "\n";
+  std::cout << "Урок 4. Алгоритмы на массивах\n";
+  std::cout << "Введите 25. Задача 1.\n";
+  std::cout << "Введите 26. Задача 2.\n";
+  std::cout << "Введите 27. Задача 3.\n";
+  std::cout << "Введите 28. Задача 4.\n";
+  std::cout << "\n";
+  std::cout << "Урок 5. Типы данных\n";
 
 
   std::cin >> choice;
@@ -93,6 +106,10 @@ int main() {
   case 22: task6_4(); break;
   case 23: task6_5(); break;
   case 24: task6_6(); break;
+  case 25: task7_1(); break;
+  case 26: task7_2(); break;
+  case 27: task7_3(); break;
+  case 28: task7_4(); break;
 
   default: std::cout << "Invalid choice...\n";
   }
