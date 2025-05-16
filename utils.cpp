@@ -114,3 +114,8 @@ void fill_vector_two_demensional(std::vector<std::vector<float>>& v) {
   }
 }
 
+void change_pointers(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}

@@ -28,6 +28,9 @@ void task7_1();
 void task7_2();
 void task7_3();
 void task7_4();
+void task8_1();
+void task8_2();
+void task8_3();
 
 
 int main() {
@@ -74,8 +77,13 @@ int main() {
   std::cout << "Введите 26. Задача 2.\n";
   std::cout << "Введите 27. Задача 3.\n";
   std::cout << "Введите 28. Задача 4.\n";
-  std::cout << "\n";
+  std::cout << "\n";                                  
   std::cout << "Урок 5. Типы данных\n";
+  std::cout << "Нет практической работы\n";
+  std::cout << "Урок 6. Указатели\n";
+  std::cout << "Введите 29. Задание 1.\n";
+  std::cout << "Введите 30. Задание 2.\n";
+  std::cout << "Введите 31. Задание 3.\n";
 
 
   std::cin >> choice;
@@ -110,6 +118,9 @@ int main() {
   case 26: task7_2(); break;
   case 27: task7_3(); break;
   case 28: task7_4(); break;
+  case 29: task8_1(); break;
+  case 30: task8_2(); break;
+  case 31: task8_3(); break;
 
   default: std::cout << "Invalid choice...\n";
   }
