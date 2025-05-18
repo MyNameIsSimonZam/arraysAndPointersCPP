@@ -13,3 +13,7 @@ void ring_buffer(std::vector<int>& rb);
 void fill_vector_two_demensional(std::vector<std::vector<float>>& v);
 void print_vector_two_dementional(const std::vector<std::vector<bool>>& v);
 void change_pointers(int* a, int* b);
+void revers_array_with_pointers(int* a, int size);
+void print_array(const int* a, int size);
+bool substr(const char* a, const char* b);
+  

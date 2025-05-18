@@ -26,7 +26,7 @@ void fill_vector(std::vector<int>& v) {
   for (int i = 0; i < v.size(); ++i) {
     int insert_number;
     std::cout << "Enter the " << i + 1 << " vector element: ";
-    std::cin >> insert_number;                                    
+    std::cin >> insert_number;
     v[i] = insert_number;
   };
 }
@@ -108,7 +108,7 @@ void ring_buffer(std::vector<int>& rb) {
 void fill_vector_two_demensional(std::vector<std::vector<float>>& v) {
   for (int i = 0; i < v.size(); ++i) {
     for (int j = 0; j < v.size(); ++j) {
-      std::cout << "Enter the " << j + 1 << " vector element for " << i + 1 <<" row: ";
+      std::cout << "Enter the " << j + 1 << " vector element for " << i + 1 << " row: ";
       std::cin >> v[i][j];
     }
   }
@@ -118,4 +118,36 @@ void change_pointers(int* a, int* b) {
   int temp = *a;
   *a = *b;
   *b = temp;
+}
+
+void revers_array_with_pointers(int* a, int size) {
+  for (int i = 0; i < size / 2; ++i) {
+    int temp = *(a + i);
+    *(a + i) = a[size - i - 1];
+    a[size - i - 1] = temp;
+  }
+}
+
+void print_array(const int* a, int size) {
+  for (int i = 0; i < size; ++i) {
+    std::cout << *(a + i) << " ";
+  }
+}
+
+bool substr(const char* a, const char* b) {
+  int i = 0, j = 0;
+
+  while (*(a + i) != '\0') {
+    int j = 0;
+    if (*(a + i) == *(b + j))
+      while (*(a + i + j) != '\0' && *(b + j) != '\0') {
+        if (*(a + i + j) != *(b + j)) break;
+
+        ++j;
+        if (*(b + j) == '\0') return true;
+      }
+    ++i;
+  }
+
+  return false;
 }
