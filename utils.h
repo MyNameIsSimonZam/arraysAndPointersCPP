@@ -16,4 +16,7 @@ void change_pointers(int* a, int* b);
 void revers_array_with_pointers(int* a, int size);
 void print_array(const int* a, int size);
 bool substr(const char* a, const char* b);
+void swapvec(std::vector<int>& a, int* b);
+
+
   

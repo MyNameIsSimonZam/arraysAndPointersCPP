@@ -31,6 +31,9 @@ void task7_4();
 void task8_1();
 void task8_2();
 void task8_3();
+void task9_1();
+void task9_2();
+void task9_3();
 
 
 int main() {
@@ -83,7 +86,11 @@ int main() {
   std::cout << "Урок 6. Указатели\n";
   std::cout << "Введите 29. Задание 1.\n";
   std::cout << "Введите 30. Задание 2.\n";
-  std::cout << "Введите 31. Задание 3.\n";
+  std::cout << "Введите 31. Задание 3.\n";   
+  std::cout << "Урок 7.Расширенная работа с функциями\n";
+  std::cout << "Введите 32. Задача 1.\n";
+  std::cout << "Введите 33. Задача 2.\n";
+  std::cout << "Введите 34. Задача 3.\n";
 
 
   std::cin >> choice;
@@ -121,6 +128,9 @@ int main() {
   case 29: task8_1(); break;
   case 30: task8_2(); break;
   case 31: task8_3(); break;
+  case 32: task9_1(); break;
+  case 33: task9_2(); break;
+  case 34: task9_3(); break;
 
   default: std::cout << "Invalid choice...\n";
   }

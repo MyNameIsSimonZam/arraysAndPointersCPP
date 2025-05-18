@@ -151,3 +151,11 @@ bool substr(const char* a, const char* b) {
 
   return false;
 }
+
+void swapvec(std::vector<int>& a, int* b) {
+  for (int i = 0; i < a.size(); ++i) {
+    int temp = a[i];
+    a[i] = *(b + i);
+    *(b + i) = temp;
+  }
+}
