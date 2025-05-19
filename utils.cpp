@@ -176,5 +176,8 @@ int rabbit_way(int n, int k) {
 }
 
 void evendigits(long long& n, int& ans) {
-
+  if (n == 0) return;
+  else if ((n % 10) % 2 == 0) ++ans;
+  n /= 10;
+  evendigits(n, ans);
 }
