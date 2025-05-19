@@ -159,3 +159,22 @@ void swapvec(std::vector<int>& a, int* b) {
     *(b + i) = temp;
   }
 }
+
+int rabbit_way(int n, int k) {
+  int result = 0;
+  if (n == 0) {
+    ++result;
+    return result;
+  }
+  else {
+    for (int i = 1; i <= k; ++i) {
+      if (n - i >= 0)
+        result += rabbit_way(n - i, k);
+    }
+  }
+  return result;
+}
+
+void evendigits(long long& n, int& ans) {
+
+}

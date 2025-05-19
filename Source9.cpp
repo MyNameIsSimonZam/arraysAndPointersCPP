@@ -71,7 +71,12 @@ void task9_1() {
 */
 
 void task9_2() {
-
+  int n, k;
+  std::cout << "Enter the rabbit's goal: ";
+  std::cin >> n;
+  std::cout << "Enter the maximal jump: ";
+  std::cin >> k;
+  std::cout << rabbit_way(n, k);
 }
 
 /*Задача 3
@@ -96,7 +101,9 @@ evendigits(9 223 372 036 854 775 806, ans);
 */
 
 void task9_3() {
-
+  int ans = 0;
+  long long n = 9223372036854775806;
+  evendigits(n, ans);
 }
 
 
